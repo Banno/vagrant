@@ -95,10 +95,6 @@ module Vagrant
       error_key(:already_exists, "vagrant.actions.box.unpackage")
     end
 
-    class BoxDownloadUnknownType < VagrantError
-      error_key(:unknown_type, "vagrant.actions.box.download")
-    end
-
     class BoxMetadataFileNotFound < VagrantError
       error_key(:box_metadata_file_not_found)
     end
@@ -161,6 +157,14 @@ module Vagrant
 
     class DotfileUpgradeJSONError < VagrantError
       error_key(:dotfile_upgrade_json_error)
+    end
+
+    class DownloaderError < VagrantError
+      error_key(:downloader_error)
+    end
+
+    class DownloaderInterrupted < DownloaderError
+      error_key(:downloader_interrupted)
     end
 
     class DownloaderFileDoesntExist < VagrantError
